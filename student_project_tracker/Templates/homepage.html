@@ -1,0 +1,84 @@
+{% extends 'master.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Card</title>
+  <style>
+    
+
+    .project-card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      padding: 24px;
+      box-sizing: border-box;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-name {
+      font-size: 1.5em;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 12px;
+    }
+
+    .project-description {
+      font-size: 1em;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85em;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .status.pending {
+      background-color: #fff3cd;
+      color: #856404;
+    }
+
+    .status.in-progress {
+      background-color: #cce5ff;
+      color: #004085;
+    }
+
+    .status.completed {
+      background-color: #d4edda;
+      color: #155724;
+    }
+  </style>
+</head>
+<body>
+ 
+ {% for p in data  %}
+    
+
+  <div class="project-card">
+    <div class="project-name">{{ p.project_name }}</div>
+    <div class="project-description">{{ p.project_description }}</div>
+    <div class="deadline">{{ p.deadline }}</div>
+    <div class="status in-progress">{{ p.project_status }}</div>
+  </div>
+ {% endfor %}
+    
+</body>
+</html>
+
+
+{% endblock body %}

@@ -1,0 +1,53 @@
+{% extends 'master.html' %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Form</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="form-wrapper">
+    <form class="project-form" action="" method="POST">
+        {% csrf_token %}
+      <h2>Edit Project</h2>
+
+      <div class="form-group">
+        <label for="project_name">Project Name</label>
+        <input type="text" id="project_name" value="{{ data.project_name }}" name="project_name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="project_description">Project Description</label>
+        <textarea id="project_description" name="project_description"  required>{{ data.project_description }}</textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="deadline">Deadline</label>
+        <input type="date" id="deadline" value="{{ data.deadline }}" name="deadline" required />
+      </div>
+
+      <div class="form-group">
+        <label for="project_status">Project Status</label>
+        <select id="project_status" value="{{ data.project_status }}" name="project_status" required>
+          <option value="" disabled selected>Select status</option>
+          <option value="NotStarted">Not Started</option>
+          <option value="InProgress">In Progress</option>
+          <option value="Completed">Completed</option>
+        </select>
+      </div>
+
+      <button type="submit">update</button>
+    </form>
+  </div>
+
+</body>
+</html>
+
+
+
+{% endblock body %}

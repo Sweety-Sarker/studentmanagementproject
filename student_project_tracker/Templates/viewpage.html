@@ -1,0 +1,112 @@
+{% extends 'master.html' %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Table</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
+      padding: 40px;
+    }
+
+    .table-container {
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      overflow-x: auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 800px;
+    }
+
+    thead {
+      background-color: #1f2937;
+      color: #ffffff;
+    }
+
+    th, td {
+      padding: 16px 20px;
+      text-align: left;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9fafb;
+    }
+
+    tr:hover {
+      background-color: #eef2f7;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85em;
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+
+    .pending {
+      background-color: #fff3cd;
+      color: #856404;
+    }
+
+    .in-progress {
+      background-color: #cce5ff;
+      color: #004085;
+    }
+
+    .completed {
+      background-color: #d4edda;
+      color: #155724;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Project Name</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Deadline</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        
+        <tr>
+          <td>{{ data.project_name }}</td>
+          <td>{{ data.project_description }}</td>
+          <td><span>{{ data.deadline }} </span></td>
+          <td>{{ data.project_status }}</td>
+          <td>
+            
+  
+        
+            
+        
+        
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
+
+
+
+{% endblock body %}
